@@ -14,10 +14,6 @@ type Props = {
   removeMenuItem: (id: number) => void;
 };
 
-const testValue = (index: number) => {
-  console.log("Index is:" + index);
-};
-
 const MenuItemInput = ({ index, removeMenuItem }: Props) => {
   const { control } = useFormContext();
 
