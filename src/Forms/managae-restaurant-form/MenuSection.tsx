@@ -8,8 +8,10 @@ const MenuSection = () => {
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "menutems",
+    name: "menuItems",
   });
+
+  console.log(fields[0]);
 
   return (
     <div className="space-y-2">
@@ -19,6 +21,7 @@ const MenuSection = () => {
           Create your menu and give each item a name and a price
         </FormDescription>
       </div>
+
       <FormField
         control={control}
         name="menuItems"
@@ -28,7 +31,7 @@ const MenuSection = () => {
               <MenuItemInput
                 key={index}
                 index={index}
-                removeMenuItem={() => remove(index)}
+                removeMenuItem={(id) => remove(id)}
               />
             ))}
           </FormItem>
