@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import MobileNav from "./MobileNav";
-
+import logo from "../assets/images/logo.png";
 import MainNav from "./MainNav";
 
 const Header = () => {
@@ -11,7 +11,7 @@ const Header = () => {
           className="text-3xl font-bold tracking-tight text-orange-500"
           to="/"
         >
-          FoodHunt.com
+          <img src={logo} alt="" className=" w-[130px] h-[40px]" />
         </Link>
         <div className="md:hidden">
           <MobileNav />

@@ -7,6 +7,7 @@ import ProtectedRoute from "./Auth/ProtectedRoute";
 import ManageRestaurantPage from "./Pages/ManageRestaurantPage";
 import SearchPage from "./Pages/SearchPage";
 import Detailpage from "./Pages/Detailpage";
+import OrderStatusPage from "./Pages/OrderStatusPage";
 
 const AppRoutes = () => {
   return (
@@ -45,6 +46,14 @@ const AppRoutes = () => {
           element={
             <Layout>
               <UserProfilePage />{" "}
+            </Layout>
+          }
+        />
+        <Route
+          path="/order-status"
+          element={
+            <Layout>
+              <OrderStatusPage />{" "}
             </Layout>
           }
         />
