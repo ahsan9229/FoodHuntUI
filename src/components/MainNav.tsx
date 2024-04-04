@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import UserNameMenu from "./UserNameMenu";
 import { Button } from "./ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
-import uarflag from "../assets/images/uae.png";
+import pakflag from "../assets/images/pak.png";
 
 const MainNav = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -31,7 +31,7 @@ const MainNav = () => {
             العربية
           </Link>
           <Link to="/" className="">
-            <img src={uarflag} className="w-[35px]" alt="" />
+            <img src={pakflag} className="w-[35px]" alt="" />
           </Link>
           <Button
             variant="ghost"
