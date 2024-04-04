@@ -13,11 +13,11 @@ const HomePage = () => {
   };
   return (
     <div className="flex flex-col gap-12">
-      <div className="md:px-32 bg-white rounded-lg shadow-md py-8 flex flex-col gap-5 text-center -mt-16">
-        <h1 className="text-5xl font-bold tracking-tight text-orange-600">
+      <div className="md:px-32 bg-white rounded-lg  md:py-2 py-10 flex flex-col gap-5 text-center md:-mt-60 -mt-40 bg-transparent">
+        <h1 className="md:text-5xl text-2xl font-bold tracking-tight text-orange-600">
           Tuck into a takeway today
         </h1>
-        <span className="text-xl"> Food is just click away!</span>
+        <span className="md:text-xl text-md"> Food is just click away!</span>
 
         <SearchBar
           placeHolder="Search by city or Town"

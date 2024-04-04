@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import UserNameMenu from "./UserNameMenu";
 import { Button } from "./ui/button";
 import { useAuth0 } from "@auth0/auth0-react";
+import uarflag from "../assets/images/uae.png";
 
 const MainNav = () => {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
@@ -16,13 +17,30 @@ const MainNav = () => {
           <UserNameMenu />
         </>
       ) : (
-        <Button
-          variant="ghost"
-          className="font-bold hover:text-orange-500 hover:bg-white "
-          onClick={async () => await loginWithRedirect()}
-        >
-          Log in
-        </Button>
+        <div className="flex items-center gap-4 ">
+          <Link to="/" className="font-bold hover:text-orange-500">
+            Donation
+          </Link>
+          <Link to="/" className="font-bold hover:text-orange-500">
+            Offers
+          </Link>
+          <Link to="/" className="font-bold hover:text-orange-500">
+            Become a partner
+          </Link>
+          <Link to="/" className="font-bold hover:text-orange-500">
+            العربية
+          </Link>
+          <Link to="/" className="">
+            <img src={uarflag} className="w-[35px]" alt="" />
+          </Link>
+          <Button
+            variant="ghost"
+            className="font-bold hover:text-orange-500 hover:bg-white "
+            onClick={async () => await loginWithRedirect()}
+          >
+            Log in
+          </Button>
+        </div>
       )}
     </span>
   );
