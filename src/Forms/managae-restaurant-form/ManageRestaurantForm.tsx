@@ -69,22 +69,22 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
     if (!restaurant) {
       return;
     }
+    // price lowest domination of 100 = 100pence == 1GBP
+    const DeliveryPriceFormatted = parseInt(
+      (restaurant.deliveryPrice / 100).toFixed(2)
+    );
+    const menuItemsFormatted = restaurant.menuItems.map((itemPrice) => ({
+      ...itemPrice,
+      price: parseInt((itemPrice.price / 100).toFixed(2)),
+    }));
 
-    // const DeliveryPriceFormatted = parseInt(
-    //   (restaurant.delievryPrice / 100).toFixed(2)
-    // );
-    // const menuItemsFormatted = restaurant.menuItems.map((itemPrice, index) => ({
-    //   ...itemPrice,
-    //   price: parseInt((itemPrice.price / 100).toFixed(2)),
-    // }));
-
-    // const updaterestaurant = {
-    //   ...restaurant,
-    //   delievryPrice: DeliveryPriceFormatted,
-    //   menuItems: menuItemsFormatted,
-    // };
-    // form.reset(updaterestaurant);
-    form.reset(restaurant);
+    const updaterestaurant = {
+      ...restaurant,
+      delievryPrice: DeliveryPriceFormatted,
+      menuItems: menuItemsFormatted,
+    };
+    form.reset(updaterestaurant);
+    // form.reset(restaurant);
   }, [form, restaurant]);
 
   const onSubmit = (FormDataJson: RestaurantFormData) => {
@@ -94,11 +94,11 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
     formData.append("restaurantName", FormDataJson.restaurantName);
     formData.append("city", FormDataJson.city);
     formData.append("country", FormDataJson.country);
-    formData.append("deliveryPrice", FormDataJson.deliveryPrice.toString());
-    // formData.append(
-    //   "deliveryPrice",
-    //   (FormDataJson.deliveryPrice * 100).toString()
-    // );
+    //formData.append("deliveryPrice", FormDataJson.deliveryPrice.toString());
+    formData.append(
+      "deliveryPrice",
+      (FormDataJson.deliveryPrice * 100).toString()
+    );
 
     formData.append(
       "estimatedDeliveryTime",
@@ -110,11 +110,11 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
 
     FormDataJson.menuItems.forEach((menuItems, index) => {
       formData.append(`menuItems[${index}][name]`, menuItems.name);
-      formData.append(`menuItems[${index}][price]`, menuItems.price.toString());
-      // formData.append(
-      //   `menuItems[${index}][price]`,
-      //   (menuItems.price * 100).toString()
-      // );
+      //  formData.append(`menuItems[${index}][price]`, menuItems.price.toString());
+      formData.append(
+        `menuItems[${index}][price]`,
+        (menuItems.price * 100).toString()
+      );
     });
 
     if (FormDataJson.imageFile) {

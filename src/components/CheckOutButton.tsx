@@ -24,6 +24,7 @@ const CheckOutButton = ({ disabled, onCheckout, isLoading }: Props) => {
   const { pathname } = useLocation();
   const { currentUser, isLoading: isGetUserLoading } = useGetMyUser();
 
+  //Redirect user to CheckOutpage with active cart
   const onLogin = async () => {
     await loginWithRedirect({
       appState: {

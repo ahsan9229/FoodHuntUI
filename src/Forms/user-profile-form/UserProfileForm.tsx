@@ -19,7 +19,7 @@ import { useEffect } from "react";
 // Creating FORM SCHEMA
 const formSchema = z.object({
   email: z.string().optional(),
-  name: z.string().optional(),
+  name: z.string().min(1, "name is required"),
   phone: z.string().min(1, "Phone is Required"),
   addressLine: z.string().min(1, "Address is Required"),
   city: z.string().min(1, "City is Required"),

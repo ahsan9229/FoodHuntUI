@@ -1,17 +1,25 @@
 import ManageRestaurantForm from "@/Forms/managae-restaurant-form/ManageRestaurantForm";
 import {
   useCreateMyRestaurant,
+  useGetMyRestaurantOrders,
   useUpdateMyRestaurant,
   userGetMyRestaurant,
 } from "@/api/MyRestaurantApi";
+import DocumentTitle from "@/components/DocumentTitle";
+import OrderItemCard from "@/components/OrderItemCard";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ManageRestaurantPage = () => {
+  DocumentTitle("Manage Restaurant");
   const { createRestaurant, isLoading: isCreateLoading } =
     useCreateMyRestaurant();
   const { restaurant, isLoading: isGetLoading } = userGetMyRestaurant();
   const { updateRestaurant, isLoading: isUpdateLoading } =
     useUpdateMyRestaurant();
+
+  const { orders } = useGetMyRestaurantOrders();
+
   const isEditing = !!restaurant;
 
   if (isGetLoading) {
@@ -25,15 +33,32 @@ const ManageRestaurantPage = () => {
       </div>
     );
   }
-  if (!restaurant) {
-    return <span>Unable to laod restaurant Detail</span>;
-  }
+  // if (!restaurant) {
+  //   return <span>Unable to laod restaurant Detail</span>;
+  // }
   return (
-    <ManageRestaurantForm
-      restaurant={restaurant}
-      onSave={isEditing ? updateRestaurant : createRestaurant}
-      isLoading={isCreateLoading || isUpdateLoading}
-    />
+    <Tabs defaultValue="orders">
+      <TabsList>
+        <TabsTrigger value="orders">Orders</TabsTrigger>
+        <TabsTrigger value="manage-retaurant">Manage Restaurant</TabsTrigger>
+      </TabsList>
+      <TabsContent
+        value="orders"
+        className="space-y-5 bg-gray-50 p-10 rounded-lg"
+      >
+        <h2 className="text-2xl font-bold">{orders?.length} active orders</h2>
+        {orders?.map((order, index) => (
+          <OrderItemCard order={order} key={index} />
+        ))}
+      </TabsContent>
+      <TabsContent value="manage-retaurant">
+        <ManageRestaurantForm
+          restaurant={restaurant}
+          onSave={isEditing ? updateRestaurant : createRestaurant}
+          isLoading={isCreateLoading || isUpdateLoading}
+        />
+      </TabsContent>
+    </Tabs>
   );
 };
 

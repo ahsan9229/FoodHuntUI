@@ -15,7 +15,7 @@ const AppRoutes = () => {
       <Route
         path="/"
         element={
-          <Layout showHero>
+          <Layout showHero title="Home">
             <HomePage />
           </Layout>
         }
@@ -24,7 +24,7 @@ const AppRoutes = () => {
       <Route
         path="/search/:city"
         element={
-          <Layout showHero={false}>
+          <Layout showHero={false} title="Search Page">
             {" "}
             <SearchPage />
           </Layout>
@@ -33,7 +33,7 @@ const AppRoutes = () => {
       <Route
         path="/detail/:restaurantId"
         element={
-          <Layout showHero={false}>
+          <Layout showHero={false} title="Restaurant Detail">
             {" "}
             <Detailpage />
           </Layout>
@@ -44,7 +44,7 @@ const AppRoutes = () => {
         <Route
           path="/user-profile"
           element={
-            <Layout>
+            <Layout title="User Profile">
               <UserProfilePage />{" "}
             </Layout>
           }
@@ -52,7 +52,7 @@ const AppRoutes = () => {
         <Route
           path="/order-status"
           element={
-            <Layout>
+            <Layout title="Order Status">
               <OrderStatusPage />{" "}
             </Layout>
           }
@@ -60,7 +60,7 @@ const AppRoutes = () => {
         <Route
           path="/manage-restaurant"
           element={
-            <Layout>
+            <Layout title="Manage Restaurant">
               <ManageRestaurantPage />{" "}
             </Layout>
           }

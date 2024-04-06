@@ -1,3 +1,4 @@
+import DocumentTitle from "@/components/DocumentTitle";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -5,9 +6,11 @@ import Hero from "@/components/Hero";
 type Props = {
   children: React.ReactNode;
   showHero?: boolean;
+  title?: string;
 };
 
-const Layout = ({ children, showHero = false }: Props) => {
+const Layout = ({ children, showHero = false, title = "Home" }: Props) => {
+  DocumentTitle(title);
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

@@ -43,7 +43,7 @@ type CheckoutSessionRequest = {
   }[];
   deliveryDetails: {
     email: string;
-    name?: string;
+    name: string;
     addressLine: string;
     city: string;
   };
@@ -69,7 +69,6 @@ export const useCreateCheckoutSession = () => {
         body: JSON.stringify(checkoutSessionRequest),
       }
     );
-
     if (!response.ok) {
       throw new Error("Unable to create checkout session");
     }

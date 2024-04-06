@@ -12,17 +12,16 @@ const HomePage = () => {
     });
   };
   return (
-    <div className="flex flex-col gap-12">
-      <div className="md:px-32 bg-white rounded-lg  md:py-2 py-10 flex flex-col gap-5 text-center md:-mt-60 -mt-40 bg-transparent">
-        <h1 className="md:text-5xl text-2xl font-bold tracking-tight text-orange-600">
-          Tuck into a takeway today
-        </h1>
-        <span className="md:text-xl text-md"> Food is just click away!</span>
-
+    <div className="flex flex-col gap-5">
+      <div className="md:px-3 rounded-lg  md:py-2 py-10 flex flex-col gap-5 text-center md:-mt-30 -mt-40 items-center ">
         <SearchBar
           placeHolder="Search by city or Town"
           onSubmit={handleSearchSubmit}
         />
+        <h1 className="md:text-5xl text-2xl font-bold tracking-tight text-orange-600">
+          Tuck into a takeway today
+        </h1>
+        <span className="md:text-xl text-md"> Food is just click away!</span>
       </div>
       <div className="grid md:grid-cols-2 gap-2">
         <img src={LandingImg} alt="" />
