@@ -39,7 +39,7 @@ const ManageRestaurantPage = () => {
   return (
     <Tabs defaultValue="orders">
       <TabsList>
-        <TabsTrigger value="orders">Orders</TabsTrigger>
+        <TabsTrigger value="orders">{orders?.length} Orders</TabsTrigger>
         <TabsTrigger value="manage-retaurant">Manage Restaurant</TabsTrigger>
       </TabsList>
       <TabsContent
@@ -47,9 +47,9 @@ const ManageRestaurantPage = () => {
         className="space-y-5 bg-gray-50 p-10 rounded-lg"
       >
         <h2 className="text-2xl font-bold">{orders?.length} active orders</h2>
-        {orders?.map((order, index) => (
-          <OrderItemCard order={order} key={index} />
-        ))}
+        {orders
+          ?.map((order, index) => <OrderItemCard order={order} key={index} />)
+          .reverse()}
       </TabsContent>
       <TabsContent value="manage-retaurant">
         <ManageRestaurantForm
