@@ -84,7 +84,7 @@ const UserProfileForm = ({
             <FormItem className="flex-1">
               <FormLabel>Name</FormLabel>
               <FormControl>
-                <Input {...field} disabled className="bg-white" />
+                <Input {...field} className="bg-white" />
               </FormControl>
             </FormItem>
           )}

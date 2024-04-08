@@ -13,12 +13,12 @@ const HomePage = () => {
   };
   return (
     <div className="flex flex-col gap-5">
-      <div className="md:px-3 rounded-lg  md:py-2 py-10 flex flex-col gap-5 text-center md:-mt-30 -mt-40 items-center ">
+      <div className="md:px-3 rounded-lg  md:py-2 py-10 flex flex-col gap-5 text-center md:-mt-[15%] -mt-[20%] items-center ">
         <SearchBar
           placeHolder="Search by city or Town"
           onSubmit={handleSearchSubmit}
         />
-        <h1 className="md:text-5xl text-2xl font-bold tracking-tight text-orange-600">
+        <h1 className="md:text-5xl text-4xl font-bold tracking-tight text-orange-600">
           Tuck into a takeway today
         </h1>
         <span className="md:text-xl text-md"> Food is just click away!</span>

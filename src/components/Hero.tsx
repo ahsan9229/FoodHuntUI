@@ -3,7 +3,7 @@ const Hero = () => {
   return (
     <div>
       {" "}
-      <img src={HeroImg} className="w-full max-h-[600px]" alt="" />
+      <img src={HeroImg} className="w-full max-h-[600px] object-cover" alt="" />
     </div>
   );
 };
