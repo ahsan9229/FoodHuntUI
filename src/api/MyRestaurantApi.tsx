@@ -1,5 +1,6 @@
 import { Order, Restaurant } from "@/types";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useEffect, useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import { toast } from "sonner";
 
@@ -157,13 +158,19 @@ export const useGetMyRestaurantOrders = () => {
     return response.json();
   };
 
+  //const [previousOrders, setPreviousOrders] = useState<Order[]>([]);
+
   const { data: orders, isLoading } = useQuery(
     "fetchMyRestaurantOrders",
     getMyRestaurantOrdersRequest
+    // {
+    //   refetchInterval: 5000,
+    // }
   );
 
   return { orders, isLoading };
 };
+
 type UpdateOrderStatusRequest = {
   orderId: string;
   status: string;
