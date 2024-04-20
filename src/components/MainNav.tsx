@@ -28,7 +28,7 @@ const MainNav = () => {
             Become a partner
           </Link>
           <Link to="/" className="font-bold hover:text-orange-500">
-            العربية
+            اردو
           </Link>
           <Link to="/" className="">
             <img src={pakflag} className="w-[35px]" alt="" />
